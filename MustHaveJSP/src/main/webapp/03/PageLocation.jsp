@@ -1,19 +1,20 @@
-<%@ page import="common.Person"%>
+<%@page import="common.Person"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<head><title>page 영역</title></head>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
-    <h2>이동 후 page 영역의 속성값 읽기</h2>
-    <%
-    Object pInteger = pageContext.getAttribute("pageInteger");
-    Object pString = pageContext.getAttribute("pageString");
-    Object pPerson = pageContext.getAttribute("pagePerson"); 
-    %>
-    <ul>
-        <li>Integer 객체 : <%= (pInteger == null) ? "값 없음" : pInteger %></li>
-        <li>String 객체 : <%= (pString == null) ? "값 없음" : pString %></li>
-        <li>Person 객체 : <%= (pPerson == null) ? "값 없음" : ((Person)pPerson).getName() %></li>
-    </ul>
+<h4>로케이션 페이지</h4>
+
+<p><%= pageContext.getAttribute("pageInteger")%></p>
+<p><%= pageContext.getAttribute("pageString")%></p>
+<%
+Person person2 = (Person)pageContext.getAttribute("pagePerson");
+out.print("이름:"+person2.getName()+",나이:"+ person2.getAge());
+%><br/>
 </body>
 </html>

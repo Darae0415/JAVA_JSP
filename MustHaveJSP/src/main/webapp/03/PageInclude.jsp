@@ -1,14 +1,14 @@
-<%@ page import="common.Person"%>
+<%@page import="common.Person"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<h4>Include 페이지</h4>
+
+<h4>인크루드 페이지</h4>
+
+<p><%= pageContext.getAttribute("pageInteger")%></p>
+<p><%= pageContext.getAttribute("pageString")%></p>
 <%
-int pInteger2 = (Integer)(pageContext.getAttribute("pageInteger"));
-//String pString2 = pageContext.getAttribute("pageString").toString();
-Person pPerson2 = (Person)(pageContext.getAttribute("pagePerson"));
-%>
-<ul>
-    <li>Integer 객체 : <%= pInteger2 %></li>
-    <li>String 객체 : <%= pageContext.getAttribute("pageString") %></li>
-    <li>Person 객체 : <%= pPerson2.getName() %>, <%= pPerson2.getAge() %></li>
-</ul>
+Person person2 = (Person)pageContext.getAttribute("pagePerson");
+out.print("이름:"+person2.getName()+",나이:"+ person2.getAge());
+%><br/>
+
+<h4>-----------------------</h4>    
